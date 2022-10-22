@@ -1,25 +1,13 @@
-const employee = {
-  id: 1,
-  firstname: 'Gabriela',
-  lastName: 'Tavares ',
-  salary: 10_000,
-  raiseSalary(percent) {
-      const newSalary = (this.salary * percent) + this.salary;
-      return newSalary;
-  }
+const employee = {}
+
+employee.id = '1'
+employee.firstName = 'Mariana'
+employee.lastName = 'Trombini'
+employee.salary = 7000.90
+employee.raiseSalary = function raiseSalary(perc) {
+  let newSalary = (perc * this.salary) + this.salary
+  this.salary = newSalary
+  return `New salary after ${perc}% increase = R$${this.salary.toFixed(2)}`
 }
 
-console.log(employee.raiseSalary(0.12))
-
-const employee2 = {
-  id: 2,
-  firstname: 'Vinicius',
-  lastName: 'Pereira ',
-  salary: 5_000,
-  raiseSalary(percent) {
-      const newSalary = (this.salary * percent) + this.salary;
-      return newSalary;
-  }
-}
-
-console.log(employee2.raiseSalary(0.10))
+console.log(employee.raiseSalary(0.15)) //New salary after 15% = R$8051.03
