@@ -1,6 +1,5 @@
 
-function CreatePokemon(name, number, type, abilities, hidden_abilities, stats, moves, evolution_stage, level, evolution_level, exp, nickname) {
-
+function Pokemon(name, number, type, abilities, hidden_abilities, stats, moves, evolution_stage, level, evolution_level, exp, nickname) {
   this.name = name
   this.number = number
   this.type = type
@@ -13,11 +12,10 @@ function CreatePokemon(name, number, type, abilities, hidden_abilities, stats, m
   this.evolution_level = evolution_level
   this.exp = exp
   this.nickname = nickname
-
 }
 
 
-CreatePokemon.prototype.move = function (move) {
+Pokemon.prototype.move = function (move) {
   const attack = this.moves.find(moveName => moveName.name === move)
   if (attack) {
     console.log(`${this.name} used ${move}`)
@@ -26,7 +24,7 @@ CreatePokemon.prototype.move = function (move) {
   }
 }
 
-CreatePokemon.prototype.train = function train(exp) {
+Pokemon.prototype.train = function train(exp) {
   this.exp += exp
   while (this.exp >= 100) {
     this.level++
@@ -38,7 +36,7 @@ CreatePokemon.prototype.train = function train(exp) {
   console.log(`${this.name} trained and gained ${exp} experience points. CURRENT EXP: ${this.exp} LEVEL: ${this.level}`)
 }
 
-CreatePokemon.prototype.evolve = function evolve(name, evolution_level, type, abilities, hidden_abilities, stats, move) {
+Pokemon.prototype.evolve = function evolve(name, evolution_level, type, abilities, hidden_abilities, stats, move) {
   const evolutionStage = ['baby', 'basic', 'stage-1', 'stage-2']
   this.evolution_level = evolution_level
   if (this.level >= this.evolution_level) {
@@ -68,4 +66,4 @@ CreatePokemon.prototype.evolve = function evolve(name, evolution_level, type, ab
 }
 
 
-module.exports = CreatePokemon
+module.exports = Pokemon

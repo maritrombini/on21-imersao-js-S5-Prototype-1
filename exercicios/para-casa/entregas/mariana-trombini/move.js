@@ -1,48 +1,38 @@
-const { CreateType, damageDealtByType, damageTakenByType } = require('./type')
+const { TypeStatsDamage } = require('./type')
 
-const moveByType = {
-  synthesis:
-  {
-    name: 'Synthesis',
-    type: damageDealtByType.grass,
-    summary: 'Heals the user by half its max HP. Affected by weather.',
-    power: null,
-    accuracy: null,
-    target: ['self'],
-    priority: 0
-  },
-  vine_whip:
-  {
-    name: 'Vine Whip',
-    type: damageDealtByType.grass,
-    summary: 'Inflicts regular damage with no additional effect.',
-    power: 45,
-    accuracy: 100,
-    target: ['selected'],
-    priority: 0
+function MoveList(){
+  this.moveByType = {
+    "synthesis":
+    {
+      name: 'Synthesis',
+      type: TypeStatsDamage["grass"]["damage_dealt"],
+      summary: 'Heals the user by half its max HP. Affected by weather.',
+      power: null,
+      accuracy: null,
+      target: ['self'],
+      priority: 0
+    },
+    "vine_whip":
+    {
+      name: 'Vine Whip',
+      type: TypeStatsDamage["grass"]["damage_dealt"],
+      summary: 'Inflicts regular damage with no additional effect.',
+      power: 45,
+      accuracy: 100,
+      target: ['selected'],
+      priority: 0
+    }
   }
+  
+  
 }
 
-function CreateMove(name, type, summary, power, target, accuracy, priority) {
-
-  this.name = name
-  this.type = type
-  this.summary = summary
-  this.power = power
-  this.target = target
-  this.accuracy = accuracy
-  this.priority = priority
-
+MoveList.prototype.addMove = function addMove(name,value){
+  this.moveByType[name] = value
 }
 
-const pokemonMove = new CreateMove('Aromatherapy', new CreateType('Grass', damageDealtByType.grass, damageTakenByType.grass),
-  'Cures the entire party of major status effects.', null, ['self', 'allies'], null, 0)
+MoveList.prototype.getMove = function getMove(name){
+  return this.moveByType[name]
+}
 
-const pokemonAnotherMove = new CreateMove('Vine Whip', new CreateType('Grass', damageDealtByType.grass, damageTakenByType.grass),
-  'Inflicts regular damage with no additional effect.', 45, 100, ['selected'], 0)
-
-const pokemonOneMoreMove = new CreateMove('Synthesis', new CreateType('Grass', damageDealtByType.grass, damageTakenByType.grass),
-  'Heals the user by half its max HP. Affected by weather.', null, null, ['self'], 0)
-
-
-module.exports = { CreateMove, moveByType }
+module.exports = { MoveList }
