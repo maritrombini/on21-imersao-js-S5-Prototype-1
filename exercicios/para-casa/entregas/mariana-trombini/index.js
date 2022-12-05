@@ -12,16 +12,14 @@ base_move.addMove("Trombose_Atomica",{
   power: 45,
   accuracy: 100,
   target: ['selected'],
-  priority: 0
+  priority: 10
 })
-
-console.log(base_move.getMove("Trombose_Atomica"))
 
 const bulbasaur = new Pokemon(
   'Bulbasaur', 1, [
     TypeStatsDamage["grass"],
     TypeStatsDamage["poison"]
-  ],
+  ], 
   [
     abilitiesByType["overgrow"]
   ],
