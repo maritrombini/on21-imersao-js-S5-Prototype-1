@@ -42,24 +42,3 @@ const bulbasaur = new Pokemon(
 )
 
 console.log(bulbasaur)
-// bulbasaur.train(1508)
-
-// bulbasaur.evolve('Ivysaur', 16, new CreateType('Pika', damageDealtByType.grass, damageTakenByType.grass), new CreateAbilities('Water', 'Strengthens Grass moves to inflict 1.5× damage at 1/3 max HP or less.', 'When this Pokémon has 1/3 or less of its HP remaining, its Grass-type moves inflict 1.5× as much regular damage.'),
-// new CreateAbilities(abilitiesByType.overgrow.name, abilitiesByType.overgrow.summary, abilitiesByType.overgrow.effect), { hp: 80, attack: 99, defense: 69, 's-attack': 35, 's-defense': 75, speed: 85 }, new CreateMove(moveByType.synthesis.name, moveByType.synthesis.type, moveByType.synthesis.summary, moveByType.synthesis.power, moveByType.synthesis.target, moveByType.synthesis.accuracy, moveByType.synthesis.priority))
-
-// bulbasaur.train(3620)
-// bulbasaur.evolve('Blastoise', 32)
-
-// bulbasaur.train(150)
-// bulbasaur.train(99)
-// bulbasaur.train(2)
-// bulbasaur.train(40)
-// bulbasaur.train(5)
-// bulbasaur.train(5)
-// bulbasaur.train(5)
-// bulbasaur.train(10)
-// bulbasaur.train(40)
-// bulbasaur.train(60)
-// bulbasaur.train(500)
-// bulbasaur.train(0)
-// bulbasaur.train(-100)
